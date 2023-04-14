@@ -20,5 +20,10 @@ RSpec.describe do
 
     expect(race1.class).to eq(Race)
     expect(race1.office).to eq("Texas Governor")
+
+    candidate1 = race1.register_candidate!({name: "Diana D", party: :democrat})
+    candidate2 = race1.register_candidate!({name: "Roberto R", party: :republican})
+
+    expect(election1.races[0].candidates).to eq([candidate1, candidate2])
   end
 end
